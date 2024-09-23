@@ -1,0 +1,290 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=GBK"> 
+  <title>Coverage Report > Bag</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Bag (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Bag</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93%
+  </span>
+  <span class="absValue">
+    (53/57)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import java.util.Comparator;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class Bag {
+<b class="fc">&nbsp;    private HashMap&lt;String,ArrayList&lt;Integer&gt;&gt; bottles =</b>
+&nbsp;            new HashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();
+<b class="fc">&nbsp;    private HashMap&lt;String,Equipment&gt; equipments = new HashMap&lt;String,Equipment&gt;();</b>
+<b class="fc">&nbsp;    private HashMap&lt;String,ArrayList&lt;Integer&gt;&gt; foods =</b>
+&nbsp;            new HashMap&lt;String,ArrayList&lt;Integer&gt;&gt;();
+&nbsp;
+&nbsp;    public Bag()
+<b class="fc">&nbsp;    {</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void takeEqu(Equipment equ)
+&nbsp;    {
+<b class="fc">&nbsp;        equipments.put(equ.getProName(),equ);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void removeBagEqu(String name,int id)
+&nbsp;    {
+&nbsp;        //同名装备需要进行id校验再进行删除
+<b class="fc">&nbsp;        if (equipments.containsKey(name) &amp;&amp; equipments.get(name).getProId() == id)</b>
+&nbsp;        {
+<b class="fc">&nbsp;            equipments.remove(name);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void takeBottle(Bottle bottle,int max)
+&nbsp;    {
+&nbsp;        //考虑maxBottle
+<b class="fc">&nbsp;        if (bottles.containsKey(bottle.getProName()))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            if (bottles.get(bottle.getProName()).size() == max)</b>
+&nbsp;            {
+&nbsp;                //nothing happen
+&nbsp;            }
+&nbsp;            else
+&nbsp;            {
+<b class="fc">&nbsp;                if (!bottles.get(bottle.getProName()).contains(bottle.getProId()))</b>
+&nbsp;                {
+<b class="fc">&nbsp;                    bottles.get(bottle.getProName()).add(bottle.getProId());</b>
+<b class="fc">&nbsp;                    bottles.get(bottle.getProName()).sort(Comparator.naturalOrder());</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;        else {
+<b class="fc">&nbsp;            ArrayList&lt;Integer&gt; innerList = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;            bottles.put(bottle.getProName(),innerList);</b>
+<b class="fc">&nbsp;            innerList.add(bottle.getProId());</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void takeFood(Food food)
+&nbsp;    {
+<b class="fc">&nbsp;        if (foods.containsKey(food.getProName()))</b>
+&nbsp;        {
+<b class="nc">&nbsp;            if (!foods.get(food.getProName()).contains(food.getProId()))</b>
+&nbsp;            {
+<b class="nc">&nbsp;                foods.get(food.getProName()).add(food.getProId());</b>
+<b class="nc">&nbsp;                foods.get(food.getProName()).sort(Comparator.naturalOrder());</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;        else {
+<b class="fc">&nbsp;            ArrayList&lt;Integer&gt; innerList = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;            foods.put(food.getProName(),innerList);</b>
+<b class="fc">&nbsp;            innerList.add(food.getProId());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public int useBottle(String name)
+&nbsp;    {
+<b class="fc">&nbsp;        if (bottles.containsKey(name))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            return bottles.get(name).get(0);</b>
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+<b class="fc">&nbsp;            return -1;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void removeBagBottle(String name,int id)
+&nbsp;    {
+&nbsp;
+<b class="fc">&nbsp;        if (bottles.containsKey(name))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            if (bottles.get(name).contains(id))</b>
+&nbsp;            {
+<b class="fc">&nbsp;                bottles.get(name).remove(Integer.valueOf(id));</b>
+<b class="fc">&nbsp;                bottles.get(name).sort(Comparator.naturalOrder());</b>
+<b class="fc">&nbsp;                if (bottles.get(name).isEmpty())</b>
+&nbsp;                {
+<b class="fc">&nbsp;                    bottles.remove(name);</b>
+&nbsp;                }
+&nbsp;
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int eatFood(String name)
+&nbsp;    {
+<b class="fc">&nbsp;        if (foods.containsKey(name))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            final int id = foods.get(name).get(0);</b>
+<b class="fc">&nbsp;            foods.get(name).remove(0);</b>
+<b class="fc">&nbsp;            foods.get(name).sort(Comparator.naturalOrder());</b>
+<b class="fc">&nbsp;            if (foods.get(name).isEmpty())</b>
+&nbsp;            {
+<b class="fc">&nbsp;                foods.remove(name);</b>
+&nbsp;            }
+<b class="fc">&nbsp;            return id;</b>
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+<b class="fc">&nbsp;            return -1;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void removeBagFood(String name, int id)
+&nbsp;    {
+<b class="fc">&nbsp;        if (foods.containsKey(name))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            if (foods.get(name).contains(id))</b>
+&nbsp;            {
+<b class="fc">&nbsp;                foods.get(name).remove(Integer.valueOf(id));</b>
+<b class="fc">&nbsp;                foods.get(name).sort(Comparator.naturalOrder());</b>
+<b class="fc">&nbsp;                if (foods.get(name).isEmpty())</b>
+&nbsp;                {
+<b class="fc">&nbsp;                    foods.remove(name);</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getBottleSize(String name)
+&nbsp;    {
+<b class="fc">&nbsp;        if (bottles.containsKey(name))</b>
+&nbsp;        {
+<b class="fc">&nbsp;            return bottles.get(name).size();</b>
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+<b class="fc">&nbsp;            return 0;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getFoodSize(String name)
+&nbsp;    {
+<b class="fc">&nbsp;        if (foods.containsKey(name))</b>
+&nbsp;        {
+<b class="nc">&nbsp;            return foods.get(name).size();</b>
+&nbsp;        }
+&nbsp;        else
+&nbsp;        {
+<b class="fc">&nbsp;            return 0;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public HashMap&lt;String,ArrayList&lt;Integer&gt;&gt; getBotInBag()
+&nbsp;    {
+<b class="fc">&nbsp;        return bottles;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public HashMap&lt;String,Equipment&gt; getEquInBag()
+&nbsp;    {
+<b class="fc">&nbsp;        return equipments;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public HashMap&lt;String,ArrayList&lt;Integer&gt;&gt; getFoodInBag()
+&nbsp;    {
+<b class="fc">&nbsp;        return foods;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void clearAll() {
+<b class="fc">&nbsp;        bottles.clear();</b>
+<b class="fc">&nbsp;        foods.clear();</b>
+<b class="fc">&nbsp;        equipments.clear();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-01 10:05</div>
+</div>
+</body>
+</html>

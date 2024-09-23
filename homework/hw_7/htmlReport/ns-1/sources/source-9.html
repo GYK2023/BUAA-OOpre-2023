@@ -1,0 +1,536 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=GBK"> 
+  <title>Coverage Report > Operation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Operation (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Operation</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    69.4%
+  </span>
+  <span class="absValue">
+    (172/248)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.regex.Matcher;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;
+<b class="fc">&nbsp;public class Operation {</b>
+<b class="fc">&nbsp;    private HashMap&lt;Integer, Adventurer&gt; adventurers =</b>
+&nbsp;            new HashMap&lt;&gt;();
+<b class="fc">&nbsp;    private HashMap&lt;String, ArrayList&lt;String&gt;&gt; dateLog =</b>
+&nbsp;            new HashMap&lt;String, ArrayList&lt;String&gt;&gt;();
+&nbsp;
+<b class="fc">&nbsp;    private HashMap&lt;Integer, ArrayList&lt;String&gt;&gt; attackLog =</b>
+&nbsp;            new HashMap&lt;Integer, ArrayList&lt;String&gt;&gt;();
+<b class="fc">&nbsp;    private HashMap&lt;Integer, ArrayList&lt;String&gt;&gt; attackedLog =</b>
+&nbsp;            new HashMap&lt;Integer, ArrayList&lt;String&gt;&gt;();
+&nbsp;
+&nbsp;    //private Store store = new Store();
+&nbsp;
+&nbsp;    public void op1(ArrayList&lt;String&gt; s) {
+<b class="fc">&nbsp;        switch (s.get(0)) {</b>
+&nbsp;            case &quot;1&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = new Adventurer(Integer.parseInt(s.get(1)), s.get(2));</b>
+<b class="fc">&nbsp;                adventurers.put(Integer.parseInt(s.get(1)), ad);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;2&quot;: {
+<b class="fc">&nbsp;                Adventurer adv = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                if (s.get(6).equals(&quot;RegularBottle&quot;)) {</b>
+<b class="fc">&nbsp;                    adv.addBottle(Integer.parseInt(s.get(2)), s.get(3), Integer.parseInt(s.get(4)),</b>
+<b class="fc">&nbsp;                            Long.parseLong(s.get(5)), s.get(6), 0);</b>
+&nbsp;                } else {
+<b class="fc">&nbsp;                    adv.addBottle(Integer.parseInt(s.get(2)), s.get(3), Integer.parseInt(s.get(4)),</b>
+<b class="fc">&nbsp;                            Long.parseLong(s.get(5)), s.get(6), Double.parseDouble(s.get(7)));</b>
+&nbsp;                }
+&nbsp;
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;3&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                int id = Integer.parseInt(s.get(2));</b>
+<b class="fc">&nbsp;                int cap = ad.getBotCap(id);</b>
+<b class="fc">&nbsp;                long price = ad.getBotPrice(id);</b>
+&nbsp;                //store改成Store
+<b class="fc">&nbsp;                Store.buyInBot(cap, price);</b>
+<b class="fc">&nbsp;                ad.deleteBottle(id);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;4&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                if (s.get(6).equals(&quot;RegularEquipment&quot;)) {</b>
+<b class="fc">&nbsp;                    ad.addEquipment(Integer.parseInt(s.get(2)), s.get(3),</b>
+<b class="fc">&nbsp;                            Integer.parseInt(s.get(4)), Long.parseLong(s.get(5)), s.get(6), &quot;0&quot;);</b>
+<b class="fc">&nbsp;                } else if (s.get(6).equals(&quot;CritEquipment&quot;)) {</b>
+<b class="nc">&nbsp;                    ad.addEquipment(Integer.parseInt(s.get(2)), s.get(3),</b>
+<b class="nc">&nbsp;                            Integer.parseInt(s.get(4)), Long.parseLong(s.get(5)),s.get(6),s.get(7));</b>
+<b class="fc">&nbsp;                } else if (s.get(6).equals(&quot;EpicEquipment&quot;)) {</b>
+<b class="fc">&nbsp;                    ad.addEquipment(Integer.parseInt(s.get(2)), s.get(3),</b>
+<b class="fc">&nbsp;                            Integer.parseInt(s.get(4)), Long.parseLong(s.get(5)),s.get(6),s.get(7));</b>
+&nbsp;                }
+&nbsp;                //ad.addEquipment(Integer.parseInt(s.get(2)), s.get(3), Integer.parseInt(s.get(4)));
+&nbsp;                break;
+&nbsp;            }
+&nbsp;            case &quot;5&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                int id = Integer.parseInt(s.get(2));</b>
+<b class="fc">&nbsp;                int star = ad.getEquStar(id);</b>
+<b class="fc">&nbsp;                long price = ad.getEquPrice(id);</b>
+<b class="fc">&nbsp;                Store.buyInEqu(star, price);</b>
+<b class="fc">&nbsp;                ad.deleteEquipment(id);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;6&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.improveStar(Integer.parseInt(s.get(2)));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            default: {
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void op2(ArrayList&lt;String&gt; s) {
+<b class="fc">&nbsp;        switch (s.get(0)) {</b>
+&nbsp;            case &quot;7&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.addFood(Integer.parseInt(s.get(2)), s.get(3),</b>
+<b class="fc">&nbsp;                        Integer.parseInt(s.get(4)), Long.parseLong(s.get(5)));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;8&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                int id = Integer.parseInt(s.get(2));</b>
+<b class="fc">&nbsp;                int energy = ad.getFoodEn(id);</b>
+<b class="fc">&nbsp;                long price = ad.getFoodPrice(id);</b>
+<b class="fc">&nbsp;                Store.buyInFood(energy, price);</b>
+<b class="fc">&nbsp;                ad.deleteFood(id);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;9&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.takeEqu(Integer.parseInt(s.get(2)));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            case &quot;10&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.takeBottle(Integer.parseInt(s.get(2)));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;11&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.takeFood(Integer.parseInt(s.get(2)));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;12&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.useBottle(s.get(2));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;13&quot;: {
+<b class="fc">&nbsp;                Adventurer ad = adventurers.get(Integer.parseInt(s.get(1)));</b>
+<b class="fc">&nbsp;                ad.eatFood(s.get(2));</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            default: {
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void op3(ArrayList&lt;String&gt; s) {
+<b class="fc">&nbsp;        switch (s.get(0)) {</b>
+&nbsp;            case &quot;14&quot;: {
+<b class="fc">&nbsp;                System.out.println(&quot;Enter Fight Mode&quot;);</b>
+<b class="fc">&nbsp;                opOn14(s);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;                //free arrayList;
+&nbsp;            }
+&nbsp;            case &quot;15&quot;: {
+<b class="fc">&nbsp;                if (dateLog.containsKey(s.get(1))) {</b>
+<b class="fc">&nbsp;                    for (String ss : dateLog.get(s.get(1))) {</b>
+<b class="fc">&nbsp;                        System.out.println(ss);</b>
+<b class="fc">&nbsp;                    }</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    System.out.println(&quot;No Matched Log&quot;);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;16&quot;: {
+<b class="nc">&nbsp;                if (attackLog.containsKey(Integer.parseInt(s.get(1)))) {</b>
+<b class="nc">&nbsp;                    for (String ss : attackLog.get(Integer.parseInt(s.get(1)))) {</b>
+<b class="nc">&nbsp;                        System.out.println(ss);</b>
+<b class="nc">&nbsp;                    }</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    System.out.println(&quot;No Matched Log&quot;);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;17&quot;: {
+<b class="nc">&nbsp;                if (attackedLog.containsKey(Integer.parseInt(s.get(1)))) {</b>
+<b class="nc">&nbsp;                    for (String ss : attackedLog.get(Integer.parseInt(s.get(1)))) {</b>
+<b class="nc">&nbsp;                        System.out.println(ss);</b>
+<b class="nc">&nbsp;                    }</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    System.out.println(&quot;No Matched Log&quot;);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            default: {
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void op4(ArrayList&lt;String&gt; s) {
+<b class="nc">&nbsp;        switch (s.get(0)) {</b>
+&nbsp;            case &quot;18&quot;: {
+&nbsp;                //hire
+<b class="nc">&nbsp;                int id1 = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                int id2 = Integer.parseInt(s.get(2));</b>
+<b class="nc">&nbsp;                adventurers.get(id1).hire(id2, adventurers.get(id2));</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;19&quot;: {
+<b class="nc">&nbsp;                int id = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                int num = adventurers.get(id).getComSize();</b>
+<b class="nc">&nbsp;                long value = adventurers.get(id).getTotalPrice();</b>
+<b class="nc">&nbsp;                System.out.print(num + &quot; &quot;);</b>
+<b class="nc">&nbsp;                System.out.println(value);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;20&quot;: {
+<b class="nc">&nbsp;                int id = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                Adventurer ad = adventurers.get(id);</b>
+<b class="nc">&nbsp;                System.out.println(ad.getMax());</b>
+&nbsp;                //
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;21&quot;: {
+<b class="nc">&nbsp;                int advId = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                int comId = Integer.parseInt(s.get(2));</b>
+<b class="nc">&nbsp;                String ss = adventurers.get(advId).searchClass(comId);</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Commodity whose id is &quot; + comId + &quot; belongs to &quot; + ss);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;22&quot;: {
+<b class="nc">&nbsp;                int id = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                Adventurer ad = adventurers.get(id);</b>
+<b class="nc">&nbsp;                long total = ad.sellAll();</b>
+<b class="nc">&nbsp;                System.out.print(ad.getAdvName());</b>
+<b class="nc">&nbsp;                System.out.print(&quot; emptied the backpack &quot;);</b>
+<b class="nc">&nbsp;                System.out.println(total);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case &quot;23&quot;: {
+<b class="nc">&nbsp;                int advId = Integer.parseInt(s.get(1));</b>
+<b class="nc">&nbsp;                Adventurer adv = adventurers.get(advId);</b>
+&nbsp;                //long money = adventurers.get(advId).getMoney();
+<b class="nc">&nbsp;                long price = Store.creat(s, adv);</b>
+<b class="nc">&nbsp;                if (price != -1) {</b>
+<b class="nc">&nbsp;                    adventurers.get(advId).buyPro(price);</b>
+&nbsp;                    //adventurers.get(advId).addBottle();
+<b class="nc">&nbsp;                    System.out.print(&quot;successfully buy &quot;);</b>
+<b class="nc">&nbsp;                    System.out.print(s.get(3));</b>
+<b class="nc">&nbsp;                    System.out.print(&quot; for &quot;);</b>
+<b class="nc">&nbsp;                    System.out.println(price);</b>
+&nbsp;                }
+&nbsp;                break;
+&nbsp;            }
+&nbsp;            default: {
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void opOn14(ArrayList&lt;String&gt; s) {
+<b class="fc">&nbsp;        String pattern01 =</b>
+&nbsp;                &quot;(\\d{4}/((0[1-9])|(1[0-2])))-([^\\s@#-]{1,40})-([^\\s@#-]{1,40})&quot;;
+<b class="fc">&nbsp;        String pattern02 =</b>
+&nbsp;                &quot;(\\d{4}/((0[1-9])|(1[0-2])))-([^\\s@#-]{1,40})@([^\\s@#-]{1,40})&quot; +
+&nbsp;                        &quot;-([^\\s@#-]{1,40})&quot;;
+<b class="fc">&nbsp;        String pattern03 =</b>
+&nbsp;                &quot;(\\d{4}/((0[1-9])|(1[0-2])))-([^\\s@#-]{1,40})@#-([^\\s@#-]{1,40})&quot;;
+<b class="fc">&nbsp;        Pattern pattern1 = Pattern.compile(pattern01);</b>
+<b class="fc">&nbsp;        Pattern pattern2 = Pattern.compile(pattern02);</b>
+<b class="fc">&nbsp;        Pattern pattern3 = Pattern.compile(pattern03);</b>
+<b class="fc">&nbsp;        int m = Integer.parseInt(s.get(1));</b>
+<b class="fc">&nbsp;        int k = Integer.parseInt(s.get(2));</b>
+&nbsp;        //ArrayList&lt;HashMap&lt;String, Adventurer&gt;&gt; advInFight = new ArrayList&lt;&gt;();
+<b class="fc">&nbsp;        HashMap&lt;String, Adventurer&gt; adventurerHashMap = new HashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;        HashMap&lt;String,Integer&gt; advPastHit = new HashMap&lt;String,Integer&gt;();</b>
+<b class="fc">&nbsp;        for (int i = 3; i &lt; m + 3; i++) {</b>
+<b class="fc">&nbsp;            for (Map.Entry&lt;Integer, Adventurer&gt; entry : adventurers.entrySet()) {</b>
+<b class="fc">&nbsp;                if (entry.getValue().getAdvName().equals(s.get(i))) {</b>
+<b class="fc">&nbsp;                    adventurerHashMap.put(s.get(i), adventurers.get(entry.getKey()));</b>
+<b class="fc">&nbsp;                    advPastHit.put(s.get(i),adventurers.get(entry.getKey()).getAdvHit());</b>
+&nbsp;                    //advInFight.add(adventurerHashMap);
+&nbsp;                }
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+<b class="fc">&nbsp;        for (int i = 0; i &lt; k; i++) {</b>
+<b class="fc">&nbsp;            Matcher matcher1 = pattern1.matcher(s.get(m + 3 + i));</b>
+<b class="fc">&nbsp;            Matcher matcher2 = pattern2.matcher(s.get(m + 3 + i));</b>
+<b class="fc">&nbsp;            Matcher matcher3 = pattern3.matcher(s.get(m + 3 + i));</b>
+<b class="fc">&nbsp;            if (matcher1.find()) {</b>
+<b class="fc">&nbsp;                useBot(matcher1, s, adventurerHashMap);</b>
+&nbsp;                //use bottle
+&nbsp;                //默认加入战斗的advName存在并且名字合法，否则要进行空指针判断
+&nbsp;
+<b class="fc">&nbsp;            } else if (matcher2.find()) {</b>
+<b class="fc">&nbsp;                solo(matcher2, s, adventurerHashMap);</b>
+<b class="fc">&nbsp;            } else if (matcher3.find()) {</b>
+<b class="fc">&nbsp;                aoe(matcher3, s, adventurerHashMap, m);</b>
+&nbsp;
+&nbsp;            }
+&nbsp;        }
+<b class="fc">&nbsp;        for (int i = 3; i &lt; m + 3; i++) {</b>
+<b class="fc">&nbsp;            String name = s.get(i);</b>
+<b class="fc">&nbsp;            int advId = adventurerHashMap.get(name).getAdvId();</b>
+<b class="fc">&nbsp;            int newHit = adventurers.get(advId).getAdvHit();</b>
+<b class="fc">&nbsp;            int pastHit = advPastHit.get(name);</b>
+&nbsp;            //int a = pastHit - newHit;
+<b class="fc">&nbsp;            if (newHit &lt;= (pastHit / 2)) {</b>
+<b class="nc">&nbsp;                long a = (long) (pastHit - newHit);</b>
+<b class="nc">&nbsp;                for (Adventurer adv0 : adventurers.get(advId).getFollowers()) {</b>
+<b class="nc">&nbsp;                    adv0.giveMoney(adventurers.get(advId), a);</b>
+<b class="nc">&nbsp;                }</b>
+&nbsp;            }
+&nbsp;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void useBot(Matcher matcher1, ArrayList&lt;String&gt; s,
+&nbsp;                       HashMap&lt;String, Adventurer&gt; adventurerHashMap) {
+<b class="fc">&nbsp;        String date = matcher1.group(1);</b>
+<b class="fc">&nbsp;        String name = matcher1.group(5);</b>
+<b class="fc">&nbsp;        String bot = matcher1.group(6);</b>
+&nbsp;
+<b class="fc">&nbsp;        if (s.contains(name)) {</b>
+<b class="fc">&nbsp;            int id = adventurerHashMap.get(name).getAdvId();</b>
+<b class="fc">&nbsp;            if (adventurers.get(id).takenBottle(bot)) {</b>
+&nbsp;                //药水使用合法
+<b class="nc">&nbsp;                adventurers.get(id).useBottle(bot);</b>
+<b class="nc">&nbsp;                if (!dateLog.containsKey(date)) {</b>
+<b class="nc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;                    dateLog.put(date, array);</b>
+&nbsp;                }
+<b class="nc">&nbsp;                String newLog = date.concat(&quot; &quot;);</b>
+<b class="nc">&nbsp;                newLog = newLog.concat(name).concat(&quot; &quot;);</b>
+<b class="nc">&nbsp;                newLog = newLog.concat(&quot;used &quot;).concat(bot);</b>
+<b class="nc">&nbsp;                dateLog.get(date).add(newLog);</b>
+<b class="nc">&nbsp;            } else {</b>
+<b class="fc">&nbsp;                System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;            }
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void solo(Matcher matcher2,
+&nbsp;                     ArrayList&lt;String&gt; s, HashMap&lt;String, Adventurer&gt; adventurerHashMap) {
+&nbsp;        //solo
+<b class="fc">&nbsp;        String date = matcher2.group(1);</b>
+<b class="fc">&nbsp;        String advName1 = matcher2.group(5);</b>
+<b class="fc">&nbsp;        String advName2 = matcher2.group(6);</b>
+<b class="fc">&nbsp;        String weapon = matcher2.group(7);</b>
+&nbsp;        /*if(date.equals(&quot;2000/10&quot;)){
+&nbsp;            System.out.println(&quot;6&quot;);
+&nbsp;        }*/
+&nbsp;        /*if(!adventurerHashMap.containsKey(advName1)){
+&nbsp;            System.out.println(&quot;6&quot;);
+&nbsp;        }*/
+<b class="fc">&nbsp;        if (s.contains(advName1) &amp;&amp; s.contains(advName2)) {</b>
+<b class="fc">&nbsp;            int id1 = adventurerHashMap.get(advName1).getAdvId();</b>
+<b class="fc">&nbsp;            int id2 = adventurerHashMap.get(advName2).getAdvId();</b>
+<b class="fc">&nbsp;            Equipment check = adventurers.get(id1).takenEqu(weapon);</b>
+<b class="fc">&nbsp;            if (check != null) {</b>
+&nbsp;                //YYYY/MM {adv_name_1} attacked {adv_name_2} with {name}
+<b class="fc">&nbsp;                String newLog = date.concat(&quot; &quot;);</b>
+<b class="fc">&nbsp;                newLog = newLog.concat(advName1).concat(&quot; &quot;);</b>
+<b class="fc">&nbsp;                newLog = newLog.concat(&quot;attacked &quot;).concat(advName2).concat(&quot; &quot;);</b>
+<b class="fc">&nbsp;                newLog = newLog.concat(&quot;with &quot;).concat(weapon);</b>
+<b class="fc">&nbsp;                int level = adventurers.get(id1).getAdvLevel();</b>
+&nbsp;                //int star = adventurers.get(id1).takenEqu(weapon).getStar();
+<b class="fc">&nbsp;                int newHit = adventurerHashMap.get(advName2).getAttacked(check, level);</b>
+<b class="fc">&nbsp;                System.out.println(id2 + &quot; &quot; + newHit);</b>
+<b class="fc">&nbsp;                if (!attackedLog.containsKey(id2)) {</b>
+<b class="fc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;                    attackedLog.put(id2, array);</b>
+&nbsp;                }
+<b class="fc">&nbsp;                attackedLog.get(id2).add(newLog);</b>
+&nbsp;                //攻击者日志
+<b class="fc">&nbsp;                if (!attackLog.containsKey(id1)) {</b>
+<b class="fc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;                    attackLog.put(id1, array);</b>
+&nbsp;                }
+<b class="fc">&nbsp;                attackLog.get(id1).add(newLog);</b>
+&nbsp;                //日期日志
+<b class="fc">&nbsp;                if (!dateLog.containsKey(date)) {</b>
+<b class="fc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;                    dateLog.put(date, array);</b>
+&nbsp;                }
+<b class="fc">&nbsp;                dateLog.get(date).add(newLog);</b>
+<b class="fc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public void aoe(Matcher matcher3,
+&nbsp;                    ArrayList&lt;String&gt; s, HashMap&lt;String, Adventurer&gt; adventurerHashMap, int m) {
+&nbsp;        //aoe
+<b class="fc">&nbsp;        String date = matcher3.group(1);</b>
+<b class="fc">&nbsp;        String advName = matcher3.group(5);</b>
+<b class="fc">&nbsp;        String weapon = matcher3.group(6);</b>
+<b class="fc">&nbsp;        if (s.contains(advName)) {</b>
+<b class="fc">&nbsp;            int id = adventurerHashMap.get(advName).getAdvId();</b>
+<b class="fc">&nbsp;            if (adventurers.get(id).takenEqu(weapon) != null) {</b>
+&nbsp;                //aoe战斗日志合法
+<b class="fc">&nbsp;                int level = adventurers.get(id).getAdvLevel();</b>
+&nbsp;                //int star = adventurers.get(id).takenEqu(weapon).getStar();
+<b class="fc">&nbsp;                String newLog = date.concat(&quot; &quot;);</b>
+<b class="fc">&nbsp;                newLog = newLog.concat(advName).concat(&quot; &quot;);</b>
+<b class="fc">&nbsp;                newLog = newLog.concat(&quot;AOE-attacked with &quot;).concat(weapon);</b>
+<b class="fc">&nbsp;                for (int j = 3; j &lt; m + 3; j++) {</b>
+<b class="fc">&nbsp;                    if (!s.get(j).equals(advName)) {</b>
+<b class="fc">&nbsp;                        int newHit = adventurerHashMap.get(s.get(j)).</b>
+<b class="fc">&nbsp;                                getAttacked(adventurers.get(id).takenEqu(weapon), level);</b>
+<b class="fc">&nbsp;                        System.out.print(newHit);</b>
+<b class="fc">&nbsp;                        System.out.print(&quot; &quot;);</b>
+&nbsp;                        //被攻击者日志
+<b class="fc">&nbsp;                        int id0 = adventurerHashMap.get(s.get(j)).getAdvId();</b>
+<b class="fc">&nbsp;                        if (!attackedLog.containsKey(id0)) {</b>
+<b class="nc">&nbsp;                            ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;                            attackedLog.put(id0, array);</b>
+&nbsp;                        }
+<b class="fc">&nbsp;                        attackedLog.get(id0).add(newLog);</b>
+&nbsp;                    }
+&nbsp;                }
+<b class="fc">&nbsp;                System.out.print(&quot;\n&quot;);</b>
+&nbsp;                //攻击者日志
+<b class="fc">&nbsp;                if (!attackLog.containsKey(id)) {</b>
+<b class="nc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;                    attackLog.put(id, array);</b>
+&nbsp;                }
+<b class="fc">&nbsp;                attackLog.get(id).add(newLog);</b>
+&nbsp;                //日期日志
+<b class="fc">&nbsp;                if (!dateLog.containsKey(date)) {</b>
+<b class="nc">&nbsp;                    ArrayList&lt;String&gt; array = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;                    dateLog.put(date, array);</b>
+&nbsp;                }
+<b class="fc">&nbsp;                dateLog.get(date).add(newLog);</b>
+&nbsp;                //被攻击者日志
+&nbsp;                //log.put(matcher3.group(1),)
+<b class="fc">&nbsp;            } else {</b>
+<b class="nc">&nbsp;                System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;        } else {</b>
+<b class="nc">&nbsp;            System.out.println(&quot;Fight log error&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-01 10:05</div>
+</div>
+</body>
+</html>
