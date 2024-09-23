@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9baba16a-46df-4d3b-a899-343a27958927" name="更改" comment="bug修复">
+      <change beforePath="$PROJECT_DIR$/src/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operation.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="E:\OO\oopre homework\ooprehomework_2023_22371214_hw_7\htmlReport" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2XN8yJJv2K6R44ianx8MqJy7LPK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "master",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "E:/OO/oo_code/train",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AdventurerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ooprehomework_2023_22371214_hw_7" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AdventurerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AdventurerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="9baba16a-46df-4d3b-a899-343a27958927" name="更改" comment="" />
+      <created>1698458429863</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698458429863</updated>
+      <workItem from="1698458430901" duration="286000" />
+      <workItem from="1698458762445" duration="53000" />
+      <workItem from="1698458822580" duration="2028000" />
+      <workItem from="1698673303097" duration="2796000" />
+      <workItem from="1698717176760" duration="40763000" />
+      <workItem from="1698803544556" duration="972000" />
+      <workItem from="1698984424540" duration="18561000" />
+      <workItem from="1699009569960" duration="1405000" />
+      <workItem from="1699067091721" duration="2348000" />
+      <workItem from="1699423327959" duration="2632000" />
+      <workItem from="1709017018539" duration="1442000" />
+      <workItem from="1709040378560" duration="735000" />
+    </task>
+    <task id="LOCAL-00001" summary="no">
+      <option name="closed" value="true" />
+      <created>1698458867419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698458867419</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first without junit">
+      <option name="closed" value="true" />
+      <created>1698742688384</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698742688384</updated>
+    </task>
+    <task id="LOCAL-00003" summary=" without junit 对价值的修改做了调整">
+      <option name="closed" value="true" />
+      <created>1698744176270</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698744176270</updated>
+    </task>
+    <task id="LOCAL-00004" summary="更改了对price的计算 代码风格 没有junit">
+      <option name="closed" value="true" />
+      <created>1698746052404</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698746052404</updated>
+    </task>
+    <task id="LOCAL-00005" summary="发现清空背包操作前没有进行commodities的移除">
+      <option name="closed" value="true" />
+      <created>1698747593833</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698747593833</updated>
+    </task>
+    <task id="LOCAL-00006" summary="发现清空背包操作前没有进行commodities的移除">
+      <option name="closed" value="true" />
+      <created>1698766518516</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698766518516</updated>
+    </task>
+    <task id="LOCAL-00007" summary="对援助位置进行了更改">
+      <option name="closed" value="true" />
+      <created>1698770129946</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698770129946</updated>
+    </task>
+    <task id="LOCAL-00008" summary="添加junit">
+      <option name="closed" value="true" />
+      <created>1698804448964</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698804448964</updated>
+    </task>
+    <task id="LOCAL-00009" summary="bug修复">
+      <option name="closed" value="true" />
+      <created>1699009388788</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699009388788</updated>
+    </task>
+    <task id="LOCAL-00010" summary="bug修复">
+      <option name="closed" value="true" />
+      <created>1699009689363</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699009689363</updated>
+    </task>
+    <task id="LOCAL-00011" summary="bug修复">
+      <option name="closed" value="true" />
+      <created>1699010500361</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699010500361</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="no" />
+    <MESSAGE value="first without junit" />
+    <MESSAGE value=" without junit 对价值的修改做了调整" />
+    <MESSAGE value="更改了对price的计算 代码风格 没有junit" />
+    <MESSAGE value="发现清空背包操作前没有进行commodities的移除" />
+    <MESSAGE value="对援助位置进行了更改" />
+    <MESSAGE value="添加junit" />
+    <MESSAGE value="bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug修复" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ooprehomework_2023_22371214_hw_7$AdventurerTest.ic" NAME="AdventurerTest 覆盖结果" MODIFIED="1698804312470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
